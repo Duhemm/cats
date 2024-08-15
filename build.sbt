@@ -1,5 +1,14 @@
 ThisBuild / tlBaseVersion := "2.12"
 
+ThisBuild / develocityConfiguration ~= { prev =>
+  prev
+    .withServer(
+      prev.server
+        .withUrl(Some(url("https://ge-helm-cluster-unstable.grdev.net/")))
+    )
+}
+
+
 val scalaCheckVersion = "1.18.0"
 
 val disciplineVersion = "1.7.0"
